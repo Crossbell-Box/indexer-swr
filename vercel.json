@@ -6,15 +6,13 @@
       "use": "@vercel/node"
     }
   ],
-  "headers": [
+  "routes": [
     {
-      "source": "/:path*",
-      "headers": [
-        {
-          "key": "Cache-Control",
-          "value": "s-maxage=1, stale-while-revalidate"
-        }
-      ]
+      "src": "/(.*)",
+      "dest": "/",
+      "headers": {
+        "cache-control": "s-maxage=1, stale-while-revalidate"
+      }
     }
   ]
 }
